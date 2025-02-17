@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccAlarmOff" xml:space="preserve">
+    <value>Deshabilitar Alarma de Ignición</value>
+  </data>
+  <data name="AccAlarmOn" xml:space="preserve">
+    <value>Habilitar Alarma de Ignición</value>
+  </data>
+  <data name="AccOff" xml:space="preserve">
+    <value>Apagar Motor</value>
+  </data>
+  <data name="AccOn" xml:space="preserve">
+    <value>Encender Motor</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>Una app sencilla para enviar comandos SMS a rastreadores GPS.</value>
+  </data>
+  <data name="AppReset" xml:space="preserve">
+    <value>La configuración por defecto se ha restaurado.</value>
+  </data>
+  <data name="AppSlogan" xml:space="preserve">
+    <value>Rápido. Confiable. Fácil.</value>
+  </data>
+  <data name="ConfirmationLabel" xml:space="preserve">
+    <value>Confirmación</value>
+  </data>
+  <data name="ConfirmFactory" xml:space="preserve">
+    <value>Está seguro de querer restaurar el dispositivo a configuraciones de fábrica?</value>
+  </data>
+  <data name="EmptyUnit" xml:space="preserve">
+    <value>Por favor ingrese en nombre de la unidad</value>
+  </data>
+  <data name="ExistingUnit" xml:space="preserve">
+    <value>La unidad ya existe.</value>
+  </data>
+  <data name="ExtPowerAlarmOff" xml:space="preserve">
+    <value>Deshabilitar Alarma de Corte de Energía</value>
+  </data>
+  <data name="ExtPowerAlarmOn" xml:space="preserve">
+    <value>Habilitar Alarma de Corte de Energía</value>
+  </data>
+  <data name="Factory" xml:space="preserve">
+    <value>Restaurar a configuraciones de fábrica</value>
+  </data>
+  <data name="GoogleLink" xml:space="preserve">
+    <value>Ubicación</value>
+  </data>
+  <data name="MessageLabel" xml:space="preserve">
+    <value>Mensaje</value>
+  </data>
+  <data name="Movement" xml:space="preserve">
+    <value>Habilitar Alarma de Movimiento</value>
+  </data>
+  <data name="Movement100" xml:space="preserve">
+    <value>Habilitar Alarma de Movimiento (100 mts)</value>
+  </data>
+  <data name="Movement200" xml:space="preserve">
+    <value>Habilitar Alarma de Movimiento (200 mts)</value>
+  </data>
+  <data name="Movement50" xml:space="preserve">
+    <value>Habilitar Alarma de Movimiento (50 mts)</value>
+  </data>
+  <data name="MovementOff" xml:space="preserve">
+    <value>Deshabilitar Alarma de Movimiento</value>
+  </data>
+  <data name="NoLabel" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="PasswordPlaceholder" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="PhoneNumberMissing" xml:space="preserve">
+    <value>Ne se ha ingresado el número de teléfono</value>
+  </data>
+  <data name="PhonePlaceholder" xml:space="preserve">
+    <value>Número de Teléfono</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reiniciar Dispositivo</value>
+  </data>
+  <data name="ResetApp" xml:space="preserve">
+    <value>Restaurar Configuración por defecto</value>
+  </data>
+  <data name="SavePlaceholder" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="SenderMenu" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="SettingsMenu" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="SmsError" xml:space="preserve">
+    <value>Ha ocurrido un error al enviar el mensaje SMS</value>
+  </data>
+  <data name="SmsNotSupported" xml:space="preserve">
+    <value>El envío de mensajes SMS no estan soportados en este dispositivo.</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Estado del dispositivo</value>
+  </data>
+  <data name="UnitAdded" xml:space="preserve">
+    <value>La unidad se agregó.</value>
+  </data>
+  <data name="UnitSaved" xml:space="preserve">
+    <value>La configuración de la unidad ha sido guardada.</value>
+  </data>
+  <data name="YesLabel" xml:space="preserve">
+    <value>Sí</value>
+  </data>
+</root>

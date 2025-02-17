@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31611.283
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPSControlSMS", "GPSControlSMS\GPSControlSMS.csproj", "{0B7ADAAB-3111-4402-A234-E19E32017CE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPSControlSMS.MauiLib", "GPSControlSMS.MauiLib\GPSControlSMS.MauiLib.csproj", "{D3FA2E60-93D4-43A3-9CA7-A532BA109327}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7B069BF2-0C12-4609-9D31-F56295CEE249}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPSControl.Test", "GPSControl.Test\GPSControl.Test.csproj", "{87CC667B-7767-41C8-BE31-168AA46C528B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B7ADAAB-3111-4402-A234-E19E32017CE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B7ADAAB-3111-4402-A234-E19E32017CE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B7ADAAB-3111-4402-A234-E19E32017CE8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0B7ADAAB-3111-4402-A234-E19E32017CE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B7ADAAB-3111-4402-A234-E19E32017CE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B7ADAAB-3111-4402-A234-E19E32017CE8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D3FA2E60-93D4-43A3-9CA7-A532BA109327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3FA2E60-93D4-43A3-9CA7-A532BA109327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3FA2E60-93D4-43A3-9CA7-A532BA109327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3FA2E60-93D4-43A3-9CA7-A532BA109327}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87CC667B-7767-41C8-BE31-168AA46C528B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87CC667B-7767-41C8-BE31-168AA46C528B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87CC667B-7767-41C8-BE31-168AA46C528B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87CC667B-7767-41C8-BE31-168AA46C528B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		        SolutionGuid = {48BC3817-D48C-424A-A5C0-1E97FFC866CC}
+	EndGlobalSection
+EndGlobal

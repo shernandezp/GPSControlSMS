@@ -1,0 +1,11 @@
+﻿@inject GPSControlSMS.Interfaces.ILocalizationResourceManager LRM
+
+<div class="@alertStyle">
+	<div class="card-text p-3">
+		<p>
+			<span class="oi oi-pencil me-2" aria-hidden="true" style="display: inline;"></span>
+			<strong>@Text</strong>
+		</p>
+	</div>
+	<button class="btn btn-primary" @onclick="ViewModel.ResetToDefaultValues">@LRM["ResetApp"]</button>
+</div>

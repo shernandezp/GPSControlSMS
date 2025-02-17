@@ -1,0 +1,9 @@
+﻿@page "/settings"
+@using GPSControlSMS.Controls
+@inject GPSControlSMS.Interfaces.ILocalizationResourceManager LRM
+
+<h1>GPS Control SMS</h1>
+
+@LRM["AppDescription"]
+
+<SettingsControl Text="@LRM["AppSlogan"]" />

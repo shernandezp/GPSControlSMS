@@ -1,0 +1,43 @@
+﻿@page "/sender"
+@inject GPSControlSMS.Interfaces.ILocalizationResourceManager LRM
+
+<div class="d-flex align-items-center mb-3">
+    <select id="name" class="form-select me-2" @bind="ViewModel.SelectedUnit">
+        @foreach (var name in ViewModel.Names)
+        {
+            <option value="@name">@name</option>
+        }
+    </select>
+    <input id="newName" class="form-control me-2" @bind="ViewModel.NewName"/>
+    <button type="button" class="btn btn-secondary" @onclick="ViewModel.AddUnit">+</button>
+</div>
+<div class="d-flex align-items-center mb-3">
+    <input id="phoneNumber" class="form-control me-2" @bind="ViewModel.Unit.PhoneNumber" placeholder="@LRM["PhonePlaceholder"]" />
+    <div class="input-group">
+        <input id="password" type="@(ViewModel.IsPasswordVisible ? "text" : "password")" class="form-control" @bind="ViewModel.Unit.Password" placeholder="@LRM["PasswordPlaceholder"]" inputmode="numeric" />
+        <button type="button" class="btn btn-outline-secondary" @onclick="ViewModel.TogglePasswordVisibility">
+            <i class="@(ViewModel.IsPasswordVisible ? "fas fa-eye-slash" : "fas fa-eye")"></i>
+        </button>
+    </div>
+</div>
+<div class="d-flex align-items-center mb-3">
+    <select id="device" class="form-select me-2" @bind="ViewModel.SelectedDevice">
+        @foreach (var device in ViewModel.devices)
+        {
+            <option value="@device">@device</option>
+        }
+    </select>
+    <button type="button" class="btn btn-secondary" @onclick="ViewModel.Save">@LRM["SavePlaceholder"]</button>
+</div>
+
+<hr />
+
+<h3>Commands</h3>
+<ul class="list-group">
+    @foreach (var command in ViewModel.CommandList)
+    {
+        <li class="list-group-item" @onclick="() => ViewModel.SelectCommand(command)">
+            @command.Label - @command.Definition
+        </li>
+    }
+</ul>

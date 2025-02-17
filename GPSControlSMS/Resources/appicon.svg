@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="456" height="456" viewBox="0 0 456 456" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="228" cy="228" r="200" fill="#512BD4" />
+  
+  <!-- Envelope Shape -->
+  <rect x="100" y="150" width="256" height="156" rx="20" ry="20" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="5" />
+  <polygon points="100,150 228,250 356,150" fill="#E0E0E0" stroke="#E0E0E0" stroke-width="5" />
+  
+  <!-- SMS Symbol (Message Lines) -->
+  <line x1="140" y1="190" x2="316" y2="190" stroke="#512BD4" stroke-width="10" stroke-linecap="round" />
+  <line x1="140" y1="220" x2="316" y2="220" stroke="#512BD4" stroke-width="10" stroke-linecap="round" />
+</svg>
