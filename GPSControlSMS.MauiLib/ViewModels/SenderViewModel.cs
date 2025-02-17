@@ -141,6 +141,7 @@ public partial class SenderViewModel(
             Names.Add(NewName);
         }
         SelectedUnit = NewName;
+        Unit.Name = NewName;
         NewName = string.Empty;
         var message = localization["UnitAdded"];
         var messageLabel = localization["MessageLabel"];

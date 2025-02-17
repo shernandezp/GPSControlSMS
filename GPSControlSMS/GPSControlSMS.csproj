@@ -41,6 +41,9 @@
         <!-- Minimum Target OS Version for Windows Platform -->
         <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android|AnyCPU'">
+      <AndroidPackageFormat>apk</AndroidPackageFormat>
+    </PropertyGroup>
 
     <ItemGroup>
         <!-- App Icon -->
