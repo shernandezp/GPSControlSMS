@@ -19,104 +19,109 @@ using GPSControlSMS.Services;
 using GPSControlSMS.Utils;
 using Moq;
 
-namespace GPSControl.Test
+namespace GPSControl.Test;
+
+[TestFixture]
+public class UnitServiceTests
 {
-    [TestFixture]
-    public class UnitServiceTests
+    private Mock<IStorageService> _mockStorageService;
+    private UnitService _unitService;
+
+    [SetUp]
+    public void SetUp()
     {
-        private Mock<IStorageService> _mockStorageService;
-        private UnitService _unitService;
+        _mockStorageService = new Mock<IStorageService>();
+        _unitService = new UnitService(_mockStorageService.Object);
+    }
 
-        [SetUp]
-        public void SetUp()
+    [Test]
+    public void AddEditUnit_AddsNewUnit_WhenUnitDoesNotExist()
+    {
+        // Arrange
+        var unit = new UnitModel("Unit1", "1234567890", "Device1");
+        _mockStorageService.Setup(s => s.GetList<UnitModel>(Constants.UnitStorageKey)).Returns([]);
+
+        // Act
+        _unitService.AddEditUnit(unit);
+
+        // Assert
+        _mockStorageService.Verify(s => s.SetList(Constants.UnitStorageKey, It.Is<IEnumerable<UnitModel>>(u => u.Count() == 1 && u.First().Name == "Unit1")), Times.Once);
+    }
+
+    [Test]
+    public void AddEditUnit_EditsExistingUnit_WhenUnitExists()
+    {
+        // Arrange
+        var existingUnit = new UnitModel("Unit1", "1234567890", "Device1");
+        var updatedUnit = new UnitModel("Unit1", "0987654321", "Device2");
+        _mockStorageService.Setup(s => s.GetList<UnitModel>(Constants.UnitStorageKey)).Returns([existingUnit]);
+
+        // Act
+        _unitService.AddEditUnit(updatedUnit);
+
+        // Assert
+        _mockStorageService.Verify(s => s.SetList(Constants.UnitStorageKey, It.Is<IEnumerable<UnitModel>>(u => u.Count() == 1 && u.First().PhoneNumber == "0987654321" && u.First().Device == "Device2")), Times.Once);
+    }
+
+    [Test]
+    public void GetUnits_ReturnsUnits_WhenUnitsExist()
+    {
+        // Arrange
+        var units = new List<UnitModel> { new UnitModel("Unit1", "1234567890", "Device1") };
+        _mockStorageService.Setup(s => s.GetList<UnitModel>(Constants.UnitStorageKey)).Returns(units);
+
+        // Act
+        var result = _unitService.GetUnits();
+
+        using (Assert.EnterMultipleScope())
         {
-            _mockStorageService = new Mock<IStorageService>();
-            _unitService = new UnitService(_mockStorageService.Object);
-        }
-
-        [Test]
-        public void AddEditUnit_AddsNewUnit_WhenUnitDoesNotExist()
-        {
-            // Arrange
-            var unit = new UnitModel("Unit1", "1234567890", "Device1");
-            _mockStorageService.Setup(s => s.GetList<UnitModel>(Constants.UnitStorageKey)).Returns([]);
-
-            // Act
-            _unitService.AddEditUnit(unit);
-
             // Assert
-            _mockStorageService.Verify(s => s.SetList(Constants.UnitStorageKey, It.Is<IEnumerable<UnitModel>>(u => u.Count() == 1 && u.First().Name == "Unit1")), Times.Once);
+            Assert.That(result.Count(), Is.EqualTo(1));
+            Assert.That(result.First().Name, Is.EqualTo("Unit1"));
         }
+    }
 
-        [Test]
-        public void AddEditUnit_EditsExistingUnit_WhenUnitExists()
+    [Test]
+    public void GetUnits_ReturnsDefaultUnit_WhenNoUnitsExist()
+    {
+        // Arrange
+        _mockStorageService.Setup(s => s.GetList<UnitModel>(Constants.UnitStorageKey)).Returns([]);
+
+        // Act
+        var result = _unitService.GetUnits();
+
+        using (Assert.EnterMultipleScope())
         {
-            // Arrange
-            var existingUnit = new UnitModel("Unit1", "1234567890", "Device1");
-            var updatedUnit = new UnitModel("Unit1", "0987654321", "Device2");
-            _mockStorageService.Setup(s => s.GetList<UnitModel>(Constants.UnitStorageKey)).Returns([existingUnit]);
-
-            // Act
-            _unitService.AddEditUnit(updatedUnit);
-
             // Assert
-            _mockStorageService.Verify(s => s.SetList(Constants.UnitStorageKey, It.Is<IEnumerable<UnitModel>>(u => u.Count() == 1 && u.First().PhoneNumber == "0987654321" && u.First().Device == "Device2")), Times.Once);
+            Assert.That(result.Count(), Is.EqualTo(1));
+            Assert.That(result.First().Name, Is.EqualTo(Constants.DefaultUnit));
         }
+    }
 
-        [Test]
-        public void GetUnits_ReturnsUnits_WhenUnitsExist()
-        {
-            // Arrange
-            var units = new List<UnitModel> { new UnitModel("Unit1", "1234567890", "Device1") };
-            _mockStorageService.Setup(s => s.GetList<UnitModel>(Constants.UnitStorageKey)).Returns(units);
+    [Test]
+    public void GetUnit_ReturnsUnit_WhenUnitExists()
+    {
+        // Arrange
+        var unit = new UnitModel("Unit1", "1234567890", "Device1");
+        _mockStorageService.Setup(s => s.GetList<UnitModel>(Constants.UnitStorageKey)).Returns([unit]);
 
-            // Act
-            var result = _unitService.GetUnits();
+        // Act
+        var result = _unitService.GetUnit("Unit1");
 
-            // Assert
-            Assert.That(1 == result.Count());
-            Assert.That("Unit1" == result.First().Name);
-        }
+        // Assert
+        Assert.That(result.Name, Is.EqualTo("Unit1"));
+    }
 
-        [Test]
-        public void GetUnits_ReturnsDefaultUnit_WhenNoUnitsExist()
-        {
-            // Arrange
-            _mockStorageService.Setup(s => s.GetList<UnitModel>(Constants.UnitStorageKey)).Returns([]);
+    [Test]
+    public void GetUnit_ReturnsDefaultUnit_WhenUnitDoesNotExist()
+    {
+        // Arrange
+        _mockStorageService.Setup(s => s.GetList<UnitModel>(Constants.UnitStorageKey)).Returns([]);
 
-            // Act
-            var result = _unitService.GetUnits();
+        // Act
+        var result = _unitService.GetUnit("NonExistentUnit");
 
-            // Assert
-            Assert.That(1 == result.Count());
-            Assert.That(Constants.DefaultUnit == result.First().Name);
-        }
-
-        [Test]
-        public void GetUnit_ReturnsUnit_WhenUnitExists()
-        {
-            // Arrange
-            var unit = new UnitModel("Unit1", "1234567890", "Device1");
-            _mockStorageService.Setup(s => s.GetList<UnitModel>(Constants.UnitStorageKey)).Returns([unit]);
-
-            // Act
-            var result = _unitService.GetUnit("Unit1");
-
-            // Assert
-            Assert.That("Unit1" == result.Name);
-        }
-
-        [Test]
-        public void GetUnit_ReturnsDefaultUnit_WhenUnitDoesNotExist()
-        {
-            // Arrange
-            _mockStorageService.Setup(s => s.GetList<UnitModel>(Constants.UnitStorageKey)).Returns([]);
-
-            // Act
-            var result = _unitService.GetUnit("NonExistentUnit");
-
-            // Assert
-            Assert.That(Constants.DefaultUnit == result.Name);
-        }
+        // Assert
+        Assert.That(result.Name, Is.EqualTo(Constants.DefaultUnit));
     }
 }

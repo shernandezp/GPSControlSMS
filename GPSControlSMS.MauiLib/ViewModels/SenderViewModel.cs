@@ -181,23 +181,17 @@ public partial class SenderViewModel(
     {
         if (string.IsNullOrEmpty(Unit.PhoneNumber))
         {
-            var errorMessage = localization["PhoneNumberMissing"];
-            await displayService.ShowAlert("Error", errorMessage, "OK");
+            await ShowErrorAlert("PhoneNumberMissing");
             return;
         }
 
-        var confirmationMessage = localization["ConfirmFactory"];
-        var yes = localization["YesLabel"];
-        var no = localization["NoLabel"];
-        var confirmation = localization["ConfirmationLabel"];
-        if (await displayService.ShowConfirmationAlert(confirmation, confirmationMessage, yes, no))
+        if (command.Name.Equals("Factory") && !await ConfirmFactoryReset())
         {
-            // Replace placeholder of the password
-            var message = command.Definition.Replace("******", Unit.Password);
-
-            // Send SMS
-            await senderService.SendSMSAsync(Unit.PhoneNumber, message);
+            return;
         }
+
+        var message = command.Definition.Replace("******", Unit.Password);
+        await senderService.SendSMSAsync(Unit.PhoneNumber, message);
     }
 
     /// <summary>
@@ -221,6 +215,21 @@ public partial class SenderViewModel(
         {
             command.Label = localization[command.Name];
         }
+    }
+
+    private async Task ShowErrorAlert(string localizationKey)
+    {
+        var errorMessage = localization[localizationKey];
+        await displayService.ShowAlert("Error", errorMessage, "OK");
+    }
+
+    private async Task<bool> ConfirmFactoryReset()
+    {
+        var confirmationMessage = localization["ConfirmFactory"];
+        var yes = localization["YesLabel"];
+        var no = localization["NoLabel"];
+        var confirmation = localization["ConfirmationLabel"];
+        return await displayService.ShowConfirmationAlert(confirmation, confirmationMessage, yes, no);
     }
 
 }
